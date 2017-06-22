@@ -1,4 +1,3 @@
-自动合图、生成逐帧动画代码
 <div align="center">
 	<a href="https://github.com/Compass/compass">
 		<img width="200" height="200"
@@ -97,3 +96,29 @@ npm start
 cd src/
 compass watch
 ```
+修改sprite.scss，讲注释掉的部分代码取消注释
+```css
+.firstTime{
+	.ani{
+		background: $dog no-repeat;
+		background-size: round(image-width(sprite-path($dog))) / 2 auto;
+		@include retinaAnimation($dog, $delay:true);
+		animation: #{sprite-map-name($dog)} 2s step-start infinite both;
+	}
+}
+.manyTimes{
+	.ani{
+		background: $toothBrush no-repeat;
+		background-size: round(image-width(sprite-path($toothBrush))) / 2 auto;
+		@include retinaAnimation($toothBrush, $delay:true);
+		animation: #{sprite-map-name($toothBrush)} 2s step-start infinite both;
+	}
+}
+```
+可以看到`compass`监控到了变化，并合成了雪碧图
+<img src="./demo-img/compassResult.jpg" width="300">
+在`img`文件夹中看到合成的图片
+<img src="./demo-img/sprite1.jpg" width="200">
+<img src="./demo-img/sprite2.png" width="200">
+`sprite.css`被写入了逐帧动画
+<img src="./demo-img/spriteResult.jpg" width="400">
