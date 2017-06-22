@@ -21,7 +21,7 @@ gem install sass
 ```
 <h2 align="center">教程</h2>
 
-### 实现的scss关键代码
+### 关键代码
 
 #### 引入compass
 ```css
@@ -47,20 +47,20 @@ gem install sass
   $progress: 0;
   $per: 0;
   @if $delay{
-	$per: 50/$length;
-	$progress: 50+$per;
+    $per: 50/$length;
+    $progress: 50+$per;
   }@else{
-	$per: 100/$length;
-	$progress: $per;
+    $per: 100/$length;
+    $progress: $per;
   }
 	
   @keyframes #{sprite-map-name($sprite)}{
-	@each $name in $list{
-	  #{$progress}%{
-		@include retinaSprite($sprite, $name);
-	  }
-	  $progress: $progress+$per;
-	}
+    @each $name in $list{
+      #{$progress}%{
+        @include retinaSprite($sprite, $name);
+      }
+      $progress: $progress+$per;
+    }
   }
 	
 }
@@ -99,26 +99,28 @@ compass watch
 修改sprite.scss，讲注释掉的部分代码取消注释
 ```css
 .firstTime{
-	.ani{
-		background: $dog no-repeat;
-		background-size: round(image-width(sprite-path($dog))) / 2 auto;
-		@include retinaAnimation($dog, $delay:true);
-		animation: #{sprite-map-name($dog)} 2s step-start infinite both;
-	}
+  .ani{
+    background: $dog no-repeat;
+    background-size: round(image-width(sprite-path($dog))) / 2 auto;
+    @include retinaAnimation($dog, $delay:true);
+    animation: #{sprite-map-name($dog)} 2s step-start infinite both;
+  }
 }
 .manyTimes{
-	.ani{
-		background: $toothBrush no-repeat;
-		background-size: round(image-width(sprite-path($toothBrush))) / 2 auto;
-		@include retinaAnimation($toothBrush, $delay:true);
-		animation: #{sprite-map-name($toothBrush)} 2s step-start infinite both;
-	}
+  .ani{
+    background: $toothBrush no-repeat;
+    background-size: round(image-width(sprite-path($toothBrush))) / 2 auto;
+    @include retinaAnimation($toothBrush, $delay:true);
+    animation: #{sprite-map-name($toothBrush)} 2s step-start infinite both;
+  }
 }
 ```
-可以看到`compass`监控到了变化，并合成了雪碧图
-<img src="./demo-img/compassResult.jpg" width="300">
-在`img`文件夹中看到合成的图片
-<img src="./demo-img/sprite1.jpg" width="200">
-<img src="./demo-img/sprite2.png" width="200">
-`sprite.css`被写入了逐帧动画
-<img src="./demo-img/spriteResult.jpg" width="400">
+可以看到`compass`监控到了变化，并合成了雪碧图<br>
+<img src="./demo-img/compassResult.jpg" width="300"><br>
+在`img`文件夹中看到合成的图片<br>
+<img src="./demo-img/sprite1.jpg" width="200"><br>
+<img src="./demo-img/sprite2.png" width="200"><br>
+`sprite.css`被写入了逐帧动画<br>
+<img src="./demo-img/spriteResult.jpg" width="400"><br>
+再查看`http://localhost:8080`，由于webpack的热更新，我们能够直接看到逐帧动画了<br>
+<img src="./demo-img/success.gif" width="300">
