@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<title>京东618账单</title>
+	<script type="text/javascript">
+    function w() {
+        var x = window;
+        var v, u, t, tes,
+            s = x.document,
+            r = s.documentElement,
+            a = r.getBoundingClientRect().width;
+
+        if (!v && !u) {
+            var n = !!x.navigator.appVersion.match(/AppleWebKit.*Mobile.*/);
+            v = x.devicePixelRatio;
+            tes = x.devicePixelRatio;
+            v = n ? v : 1, u = 1 / v;
+        }
+        document.documentElement.setAttribute('style', 'font-size:' + a / 750 * 20 + "px");
+    }
+    window.addEventListener("resize", function() {
+        w();
+    });
+    w();
+    </script>
+</head>
+<body>
+	<div class="container">
+		<!-- 如果未登录 则给.index添加类 .unlogin -->
+		<div class="index">
+			<img src="./img/index.png" style="width: 100%">
+			<a href="javascript:;" id="start">
+				<img src="./img/index-btn.png" alt="">
+			</a>
+			<p>选取5.25-6.20京东全站消费数据</p>
+		</div>
+	    <div class="pages overflowHide">
+	    	<!-- 第一页 如果用户为初次，添加类 .firstTime 否则添加类 .manyTimes -->
+	        <div class="page page1 firstTime" data-num='1' data-kind='1'>
+				<div class="title t1">
+					<h1>#2015年6月17日#</h1>
+					<p>这一天你来到京东，</p>
+					<p>今年是你经历的<span class="point">第<span class="countUp">0</span>次618</span></p>
+				</div>
+				<div class="title t2">
+					<h1>#2015年6月17日#</h1>
+					<p>这一天你来到京东，</p>
+					<p>不知不觉，你已经经历了<span class="point">第<span class="countUp">0</span>次618</span></p>
+				</div>
+				<div class="symbol">
+					<div class="ani"></div>
+					<div class="msg"></div>
+				</div>
+	   			<div class="arrow"></div>
+	        </div>
+	        <div class="page page1 manyTimes" data-num='5' data-kind='2'>
+				<div class="title t1">
+					<h1>#2015年6月17日#</h1>
+					<p>这一天你来到京东，</p>
+					<p>今年是你经历的<span class="point">第<span class="countUp">0</span>次618</span></p>
+				</div>
+				<div class="title t2">
+					<h1>#2015年6月17日#</h1>
+					<p>这一天你来到京东，</p>
+					<p>不知不觉，你已经经历了<span class="point">第<span class="countUp">0</span>次618</span></p>
+				</div>
+				<div class="symbol">
+					<div class="ani"></div>
+					<div class="msg"></div>
+				</div>
+	   			<div class="arrow"></div>
+	        </div>
+	        <!-- 第一页结束 -->
+	        
+	        <!-- <div class="page page2 kind1" data-num='33456' data-kind='1'>
+		        <div class="title t1">
+		        	<h1>#有钱就是任性#</h1>
+		        	<p>该剁手时就剁手，今年京东618期间</p>
+		        	<p>累计消费了<span class="point"><span class="countUp">5555</span></span>元</p>
+		        </div>
+		        <div class="title t2">
+		        	<h1>#心有多大</h1>
+		        	<h1>购买力有多大#</h1>
+		        	<p>今年京东618期间，累计消费了<span class="point"><span class="countUp">5555</span></span>元</p>
+		        </div>
+		        <div class="title t3">
+		        	<h1>#会过日子才是王道#</h1>
+		        	<p>今年京东618期间</p>
+		        	<p>累计消费了<span class="point"><span class="countUp">5555</span></span>元</p>
+		        </div>
+		        <div class="title t4">
+		        	<h1>#手头有点紧</h1>
+		        	<h1>也不能影响买买买的心情#</h1>
+		        	<p>今年京东618期间累计消费了<span class="point"><span class="countUp">5555</span></span>元</p>
+		        </div>
+		        <div class="title t5">
+		        	<h1>#两袖空空</h1>
+		        	<h1>一身轻松#</h1>
+		        	<p>今年京东618累计消费了<span class="point"><span class="countUp">5555</span></span>元</p>
+		        </div>
+		        <div class="symbol">
+		        	<div class="ani"></div>
+		        	<div class="msg"></div>
+		        </div>
+	   			<div class="arrow"></div>
+	        </div>
+	        <div class="page page2 kind2" data-num='4321' data-kind='2'>
+		        <div class="title t1">
+		        	<h1>#有钱就是任性#</h1>
+		        	<p>该剁手时就剁手，今年京东618期间</p>
+		        	<p>累计消费了<span class="point"><span class="countUp">5555</span></span>元</p>
+		        </div>
+		        <div class="title t2">
+		        	<h1>#心有多大</h1>
+		        	<h1>购买力有多大#</h1>
+		        	<p>今年京东618期间，累计消费了<span class="point"><span class="countUp">5555</span></span>元</p>
+		        </div>
+		        <div class="title t3">
+		        	<h1>#会过日子才是王道#</h1>
+		        	<p>今年京东618期间</p>
+		        	<p>累计消费了<span class="point"><span class="countUp">5555</span></span>元</p>
+		        </div>
+		        <div class="title t4">
+		        	<h1>#手头有点紧</h1>
+		        	<h1>也不能影响买买买的心情#</h1>
+		        	<p>今年京东618期间累计消费了<span class="point"><span class="countUp">5555</span></span>元</p>
+		        </div>
+		        <div class="title t5">
+		        	<h1>#两袖空空</h1>
+		        	<h1>一身轻松#</h1>
+		        	<p>今年京东618累计消费了<span class="point"><span class="countUp">5555</span></span>元</p>
+		        </div>
+		        <div class="symbol">
+		        	<div class="ani"></div>
+		        	<div class="msg"></div>
+		        </div>
+	   			<div class="arrow"></div>
+	        </div>
+	        <div class="page page2 kind3" data-num='3212' data-kind='3'>
+		        <div class="title t1">
+		        	<h1>#有钱就是任性#</h1>
+		        	<p>该剁手时就剁手，今年京东618期间</p>
+		        	<p>累计消费了<span class="point"><span class="countUp">5555</span></span>元</p>
+		        </div>
+		        <div class="title t2">
+		        	<h1>#心有多大</h1>
+		        	<h1>购买力有多大#</h1>
+		        	<p>今年京东618期间，累计消费了<span class="point"><span class="countUp">5555</span></span>元</p>
+		        </div>
+		        <div class="title t3">
+		        	<h1>#会过日子才是王道#</h1>
+		        	<p>今年京东618期间</p>
+		        	<p>累计消费了<span class="point"><span class="countUp">5555</span></span>元</p>
+		        </div>
+		        <div class="title t4">
+		        	<h1>#手头有点紧</h1>
+		        	<h1>也不能影响买买买的心情#</h1>
+		        	<p>今年京东618期间累计消费了<span class="point"><span class="countUp">5555</span></span>元</p>
+		        </div>
+		        <div class="title t5">
+		        	<h1>#两袖空空</h1>
+		        	<h1>一身轻松#</h1>
+		        	<p>今年京东618累计消费了<span class="point"><span class="countUp">5555</span></span>元</p>
+		        </div>
+		        <div class="symbol">
+		        	<div class="ani"></div>
+		        	<div class="msg"></div>
+		        </div>
+	   			<div class="arrow"></div>
+	        </div>
+	        <div class="page page2 kind4" data-num='43323' data-kind='4'>
+		        <div class="title t1">
+		        	<h1>#有钱就是任性#</h1>
+		        	<p>该剁手时就剁手，今年京东618期间</p>
+		        	<p>累计消费了<span class="point"><span class="countUp">5555</span></span>元</p>
+		        </div>
+		        <div class="title t2">
+		        	<h1>#心有多大</h1>
+		        	<h1>购买力有多大#</h1>
+		        	<p>今年京东618期间，累计消费了<span class="point"><span class="countUp">5555</span></span>元</p>
+		        </div>
+		        <div class="title t3">
+		        	<h1>#会过日子才是王道#</h1>
+		        	<p>今年京东618期间</p>
+		        	<p>累计消费了<span class="point"><span class="countUp">5555</span></span>元</p>
+		        </div>
+		        <div class="title t4">
+		        	<h1>#手头有点紧</h1>
+		        	<h1>也不能影响买买买的心情#</h1>
+		        	<p>今年京东618期间累计消费了<span class="point"><span class="countUp">5555</span></span>元</p>
+		        </div>
+		        <div class="title t5">
+		        	<h1>#两袖空空</h1>
+		        	<h1>一身轻松#</h1>
+		        	<p>今年京东618累计消费了<span class="point"><span class="countUp">5555</span></span>元</p>
+		        </div>
+		        <div class="symbol">
+		        	<div class="ani"></div>
+		        	<div class="msg"></div>
+		        </div>
+	   			<div class="arrow"></div>
+	        </div>
+	        <div class="page page2 kind5" data-num='4343' data-kind='5'>
+		        <div class="title t1">
+		        	<h1>#有钱就是任性#</h1>
+		        	<p>该剁手时就剁手，今年京东618期间</p>
+		        	<p>累计消费了<span class="point"><span class="countUp">5555</span></span>元</p>
+		        </div>
+		        <div class="title t2">
+		        	<h1>#心有多大</h1>
+		        	<h1>购买力有多大#</h1>
+		        	<p>今年京东618期间，累计消费了<span class="point"><span class="countUp">5555</span></span>元</p>
+		        </div>
+		        <div class="title t3">
+		        	<h1>#会过日子才是王道#</h1>
+		        	<p>今年京东618期间</p>
+		        	<p>累计消费了<span class="point"><span class="countUp">5555</span></span>元</p>
+		        </div>
+		        <div class="title t4">
+		        	<h1>#手头有点紧</h1>
+		        	<h1>也不能影响买买买的心情#</h1>
+		        	<p>今年京东618期间累计消费了<span class="point"><span class="countUp">5555</span></span>元</p>
+		        </div>
+		        <div class="title t5">
+		        	<h1>#两袖空空</h1>
+		        	<h1>一身轻松#</h1>
+		        	<p>今年京东618累计消费了<span class="point"><span class="countUp">5555</span></span>元</p>
+		        </div>
+		        <div class="symbol">
+		        	<div class="ani"></div>
+		        	<div class="msg"></div>
+		        </div>
+	   			<div class="arrow"></div>
+	        </div>
+	        <div class="page page3 kind1" data-num='59' data-kind='1'>
+		        <div class="title t1">
+		        	<h1>#夜深人静#</h1>
+		        	<p>正是下单好时机，今年618，</p>
+		        	<p>有<span class="point"><span class="countUp">57</span>%</span>的订单完成时间在<span class="point noBg">晚上</span></p>
+		        </div>
+		        <div class="title t2">
+		        	<h1>#规律的作息#</h1>
+		        	<p>健康的生活才是王道，今年618，</p>
+		        	<p>只有<span class="point"><span class="countUp">5</span>%</span>的订单完成时间在<span class="point noBg">晚上</span></p>
+		        </div>
+		        <div class="symbol">
+					<div class="ani"></div>
+					<div class="msg"></div>
+				</div>
+	   			<div class="arrow"></div>
+	        </div>
+	        <div class="page page3 kind2" data-num='5' data-kind='2'>
+		        <div class="title t1">
+		        	<h1>#夜深人静#</h1>
+		        	<p>正是下单好时机，今年618，</p>
+		        	<p>有<span class="point"><span class="countUp">57</span>%</span>的订单完成时间在<span class="point noBg">晚上</span></p>
+		        </div>
+		        <div class="title t2">
+		        	<h1>#规律的作息#</h1>
+		        	<p>健康的生活才是王道，今年618，</p>
+		        	<p>只有<span class="point"><span class="countUp">5</span>%</span>的订单完成时间在<span class="point noBg">晚上</span></p>
+		        </div>
+		        <div class="symbol">
+					<div class="ani"></div>
+					<div class="msg"></div>
+				</div>
+	   			<div class="arrow"></div>
+	        </div>
+	        <div class="page page4 kind1" data-num='32323456' data-kind='1'>
+		        <div class="title t1">
+		        	<h1>#能省就是会赚#</h1>
+		        	<p>每一次促销机会都绝不错过，今年618，</p>
+		        	<p>又节省了<span class="point"><span class="countUp">0</span></span>元呢！</p>
+		        </div>
+		        <div class="title t2">
+		        	<h1>#每一分钱都花到精准</h1>
+		        	<h1>才是真的会花#</h1>
+		        	<p>今年618，可是节省了<span class="point"><span class="countUp">0</span></span>元呢！</p>
+		        </div>
+		        <div class="title t3">
+		        	<h1>#跟着心意走#</h1>
+		        	<p>喜欢什么买什么，</p>
+		        	<p>今年618，竟然只省了<span class="point"><span class="countUp">0</span></span>元</p>
+		        </div>
+		        <div class="symbol">
+					<div class="ani"></div>
+					<div class="msg"></div>
+				</div>
+	   			<div class="arrow"></div>
+	        </div>
+	        <div class="page page4 kind2" data-num='4323456' data-kind='2'>
+		        <div class="title t1">
+		        	<h1>#能省就是会赚#</h1>
+		        	<p>每一次促销机会都绝不错过，今年618，</p>
+		        	<p>又节省了<span class="point"><span class="countUp">0</span></span>元呢！</p>
+		        </div>
+		        <div class="title t2">
+		        	<h1>#每一分钱都花到精准</h1>
+		        	<h1>才是真的会花#</h1>
+		        	<p>今年618，可是节省了<span class="point"><span class="countUp">0</span></span>元呢！</p>
+		        </div>
+		        <div class="title t3">
+		        	<h1>#跟着心意走#</h1>
+		        	<p>喜欢什么买什么，</p>
+		        	<p>今年618，竟然只省了<span class="point"><span class="countUp">0</span></span>元</p>
+		        </div>
+		        <div class="symbol">
+					<div class="ani"></div>
+					<div class="msg"></div>
+				</div>
+	   			<div class="arrow"></div>
+	        </div>
+	        <div class="page page4 kind3" data-num='8373' data-kind='3'>
+		        <div class="title t1">
+		        	<h1>#能省就是会赚#</h1>
+		        	<p>每一次促销机会都绝不错过，今年618，</p>
+		        	<p>又节省了<span class="point"><span class="countUp">0</span></span>元呢！</p>
+		        </div>
+		        <div class="title t2">
+		        	<h1>#每一分钱都花到精准</h1>
+		        	<h1>才是真的会花#</h1>
+		        	<p>今年618，可是节省了<span class="point"><span class="countUp">0</span></span>元呢！</p>
+		        </div>
+		        <div class="title t3">
+		        	<h1>#跟着心意走#</h1>
+		        	<p>喜欢什么买什么，</p>
+		        	<p>今年618，竟然只省了<span class="point"><span class="countUp">0</span></span>元</p>
+		        </div>
+		        <div class="symbol">
+					<div class="ani"></div>
+					<div class="msg"></div>
+				</div>
+	   			<div class="arrow"></div>
+	        </div>
+	        <div class="page page5 kind1" data-num='813456' data-kind='1'>
+		        <div class="title t1">
+		        	<h1>#不挑剔#</h1>
+		        	<p>买东西就是这么博爱，今年618</p>
+		        	<p class="two-line">买的最贵单品竟然是<span class="point noBg">xx</span></p>
+		        	<p>价值<span class="point"><span class="countUp">0</span></span>元</p>
+		        </div>
+		        <div class="title t2">
+		        	<h1>#不将就才能遇到真爱#</h1>
+		        	<p class="two-line">今年618 入手最剁手的单品是<span class="point noBg">洗衣机洗衣机第一次618</span></p>
+		        	<p>价值<span class="point"><span class="countUp">0</span></span>元</p>
+		        </div>
+		        <div class="title t3">
+		        	<h1>#眼光独到#</h1>
+		        	<p>一眼就能相中好东西，今年618</p>
+		        	<p class="two-line">入手最剁手的单品是<span class="point noBg">洗衣机洗衣机第一次618</span></p>
+		        	<p>价值<span class="point"><span class="countUp">0</span></span>元</p>
+		        </div>
+		        <div class="symbol">
+					<div class="ani"></div>
+					<div class="msg"></div>
+				</div>
+	   			<div class="arrow"></div>
+	        </div>
+	        <div class="page page5 kind2" data-num='32313456' data-kind='2'>
+		        <div class="title t1">
+		        	<h1>#不挑剔#</h1>
+		        	<p>买东西就是这么博爱，今年618</p>
+		        	<p class="two-line">买的最贵单品竟然是<span class="point noBg">xx</span></p>
+		        	<p>价值<span class="point"><span class="countUp">0</span></span>元</p>
+		        </div>
+		        <div class="title t2">
+		        	<h1>#不将就才能遇到真爱#</h1>
+		        	<p class="two-line">今年618 入手最剁手的单品是<span class="point noBg">小吉(MINIJ) Note迷你mini儿童宝宝婴儿洗衣机 全自动变频滚筒内衣洗 云漫白</span></p>
+		        	<p>价值<span class="point"><span class="countUp">0</span></span>元</p>
+		        </div>
+		        <div class="title t3">
+		        	<h1>#眼光独到#</h1>
+		        	<p>一眼就能相中好东西，今年618</p>
+		        	<p class="two-line">入手最剁手的单品是<span class="point noBg">洗衣机洗衣机第一次618</span></p>
+		        	<p>价值<span class="point"><span class="countUp">0</span></span>元</p>
+		        </div>
+		        <div class="symbol">
+					<div class="ani"></div>
+					<div class="msg"></div>
+				</div>
+	   			<div class="arrow"></div>
+	        </div>
+	        <div class="page page5 kind3" data-num='913456' data-kind='3'>
+		        <div class="title t1">
+		        	<h1>#不挑剔#</h1>
+		        	<p>买东西就是这么博爱，今年618</p>
+		        	<p class="two-line">买的最贵单品竟然是<span class="point noBg">xx</span></p>
+		        	<p>价值<span class="point"><span class="countUp">0</span></span>元</p>
+		        </div>
+		        <div class="title t2">
+		        	<h1>#不将就才能遇到真爱#</h1>
+		        	<p class="two-line">今年618 入手最剁手的单品是<span class="point noBg">洗衣机洗衣机第一次618</span></p>
+		        	<p>价值<span class="point"><span class="countUp">0</span></span>元</p>
+		        </div>
+		        <div class="title t3">
+		        	<h1>#眼光独到#</h1>
+		        	<p>一眼就能相中好东西，今年618</p>
+		        	<p class="two-line">入手最剁手的单品是<span class="point noBg">小吉(MINIJ) Note迷你mini儿童宝宝婴儿洗衣机 全自动变频滚筒内衣洗 云漫白</span></p>
+		        	<p>价值<span class="point"><span class="countUp">0</span></span>元</p>
+		        </div>
+		        <div class="symbol">
+					<div class="ani"></div>
+					<div class="msg"></div>
+				</div>
+	   			<div class="arrow"></div>
+	        </div>
+	        <div class="page page6">
+	        	<div class="title">
+	        		<h1>#看看钱都败在哪儿#</h1>
+	        		<p>今年618买了<span class="point">5</span>个不同品类商品</p>
+	        	</div>
+	        	<div class="pie-con"></div>
+	        	<div id="pie"></div>
+	        	<div class="tags one">
+	        		<span>1</span>
+	        		<span>你阿思阿塞颠三倒四的</span>
+	        		<span>3</span>
+	        		<span>4</span>
+	        		<span>5</span>
+	        	</div>
+	   			<div class="arrow"></div>
+	        </div>
+	        <div class="page result r1">
+	        	<div class="symbol"></div>
+	        	<div class="share">
+	        		<a href="#"></a>
+	        		<a href="#"></a>
+	        	</div>
+	        </div>
+	        <div class="page result r2">
+	        	<div class="symbol"></div>
+	        	<div class="share">
+	        		<a href="#"></a>
+	        		<a href="#"></a>
+	        	</div>
+	        </div>
+	        <div class="page result r3">
+	        	<div class="symbol"></div>
+	        	<div class="share">
+	        		<a href="#"></a>
+	        		<a href="#"></a>
+	        	</div>
+	        </div>
+	        <div class="page result r4">
+	        	<div class="symbol"></div>
+	        	<div class="share">
+	        		<a href="#"></a>
+	        		<a href="#"></a>
+	        	</div>
+	        </div>
+	        <div class="page result r5">
+	        	<div class="symbol"></div>
+	        	<div class="share">
+	        		<a href="#"></a>
+	        		<a href="#"></a>
+	        	</div>
+	        </div>
+	        <div class="page offSide o1">
+	        	<div class="symbol"></div>
+	        	<div class="share">
+	        		<a href="#"></a>
+	        	</div>
+	        </div>
+	        <div class="page offSide o2">
+	        	<div class="symbol"></div>
+	        	<div class="share">
+	        		<a href="#"></a>
+	        	</div>
+	        </div>
+	        <div class="page offSide o3">
+	        	<div class="symbol"></div>
+	        	<div class="share">
+	        		<a href="#"></a>
+	        	</div>
+	        </div>
+	        <div class="page offSide o4">
+	        	<div class="symbol"></div>
+	        	<div class="share">
+	        		<a href="#"></a>
+	        	</div>
+	        </div>
+	        <div class="page offSide o5">
+	        	<div class="symbol"></div>
+	        	<div class="share">
+	        		<a href="#"></a>
+	        	</div>
+	        </div> -->
+	        <!-- 结束 -->
+	    </div>
+	</div>
+	<script type="text/javascript" src="./plugins/zepto.min.js"></script>
+</body>
+</html>

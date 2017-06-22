@@ -1,0 +1,81 @@
+/* line 59, ../test/sprite.scss */
+.firstTime .ani {
+  background: url('../img/dog-sb0350d051a.png') no-repeat;
+  background-size: 280px auto;
+  animation: dog 2s step-start infinite both;
+}
+@keyframes dog {
+  57.14286% {
+    width: 280px;
+    height: 179.5px;
+    background-position: 0 0;
+  }
+  64.28571% {
+    width: 280px;
+    height: 179.5px;
+    background-position: 0 -180px;
+  }
+  71.42857% {
+    width: 280px;
+    height: 179.5px;
+    background-position: 0 -359px;
+  }
+  78.57143% {
+    width: 280px;
+    height: 179.5px;
+    background-position: 0 -539px;
+  }
+  85.71429% {
+    width: 280px;
+    height: 179.5px;
+    background-position: 0 -718px;
+  }
+  92.85714% {
+    width: 280px;
+    height: 179.5px;
+    background-position: 0 -898px;
+  }
+  100% {
+    width: 280px;
+    height: 179.5px;
+    background-position: 0 -1077px;
+  }
+}
+/* line 67, ../test/sprite.scss */
+.manyTimes .ani {
+  background: url('../img/toothBrush-s824f4de4b5.png') no-repeat;
+  background-size: 321.5px auto;
+  animation: toothBrush 2s step-start infinite both;
+}
+@keyframes toothBrush {
+  58.33333% {
+    width: 321.5px;
+    height: 270px;
+    background-position: 0 0;
+  }
+  66.66667% {
+    width: 321.5px;
+    height: 270px;
+    background-position: 0 -270px;
+  }
+  75% {
+    width: 321.5px;
+    height: 270px;
+    background-position: 0 -540px;
+  }
+  83.33333% {
+    width: 321.5px;
+    height: 270px;
+    background-position: 0 -810px;
+  }
+  91.66667% {
+    width: 321.5px;
+    height: 270px;
+    background-position: 0 -1080px;
+  }
+  100% {
+    width: 321.5px;
+    height: 270px;
+    background-position: 0 -1350px;
+  }
+}
