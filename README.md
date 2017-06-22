@@ -15,7 +15,7 @@
 
 基于Compass+Sass实现函数式自动生成逐帧动画，先安装Compass和Sass
 ```bash
-<!-- gem安装依赖于ruby -->
+// gem安装依赖于ruby
 gem install compass
 gem install sass
 ```
@@ -86,9 +86,9 @@ $dog: sprite-map("dog/*.png");
 
 以今年618账单为例，首先`git clone`本项目，
 ```bash
-cd autpFBF/
+cd autoFBF/
 cnpm install
-<!-- 开启本地服务：npm start，命令的具体含义可以在package.json中查看 -->
+// 开启本地服务：npm start，命令的具体含义可以在package.json中查看
 npm start
 ```
 新建命令行窗口，开启compass监控
@@ -96,7 +96,7 @@ npm start
 cd src/
 compass watch
 ```
-修改sprite.scss，讲注释掉的部分代码取消注释
+修改sprite.scss，将注释掉的部分代码取消注释
 ```css
 .firstTime{
   .ani{
@@ -126,5 +126,6 @@ compass watch
 
 `sprite.css`被写入了逐帧动画
 <div align="center"><img src="./demo-img/spriteResult.jpg" width="400"></div>
-再查看`http://localhost:8080`，由于webpack的热更新，我们能够直接看到逐帧动画了
+
+再查看 `http://localhost:8080` ，由于webpack的热更新，我们能够直接看到逐帧动画了
 <div align="center"><img src="./demo-img/success.gif" width="250"></div>
