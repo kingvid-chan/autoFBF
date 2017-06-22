@@ -115,12 +115,12 @@ compass watch
   }
 }
 ```
-可以看到`compass`监控到了变化，并合成了雪碧图<br>
-<img src="./demo-img/compassResult.jpg" width="300"><br>
-在`img`文件夹中看到合成的图片<br>
-<img src="./demo-img/sprite1.jpg" width="200"><br>
-<img src="./demo-img/sprite2.png" width="200"><br>
-`sprite.css`被写入了逐帧动画<br>
-<img src="./demo-img/spriteResult.jpg" width="400"><br>
-再查看`http://localhost:8080`，由于webpack的热更新，我们能够直接看到逐帧动画了<br>
-<img src="./demo-img/success.gif" width="300">
+可以看到`compass`监控到了变化，并合成了雪碧图
+<img src="./demo-img/compassResult.jpg" width="300" style="display: block;margin: 10px auto;">
+在`img`文件夹中看到合成的图片
+<img src="./demo-img/sprite1.jpg" width="200" style="display: block;margin: 10px auto;">
+<img src="./demo-img/sprite2.png" width="200" style="display: block;margin: 10px auto;">
+`sprite.css`被写入了逐帧动画
+<img src="./demo-img/spriteResult.jpg" width="400" style="display: block;margin: 10px auto;">
+再查看`http://localhost:8080`，由于webpack的热更新，我们能够直接看到逐帧动画了
+<img src="./demo-img/success.gif" width="250" style="display: block;margin: 10px auto;">
