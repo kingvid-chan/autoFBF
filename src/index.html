@@ -20,7 +20,7 @@
             tes = x.devicePixelRatio;
             v = n ? v : 1, u = 1 / v;
         }
-        document.documentElement.setAttribute('style', 'font-size:' + a / 750 * 20 + "px");
+        document.documentElement.setAttribute('style', 'font-size:' + (a/750*20).toFixed(2) + "px");
     }
     window.addEventListener("resize", function() {
         w();
@@ -76,7 +76,7 @@
 	        </div>
 	        <!-- 第一页结束 -->
 	        
-	        <!-- <div class="page page2 kind1" data-num='33456' data-kind='1'>
+	        <div class="page page2 kind1" data-num='33456' data-kind='1'>
 		        <div class="title t1">
 		        	<h1>#有钱就是任性#</h1>
 		        	<p>该剁手时就剁手，今年京东618期间</p>
@@ -488,7 +488,7 @@
 	        	<div class="share">
 	        		<a href="#"></a>
 	        	</div>
-	        </div> -->
+	        </div>
 	        <!-- 结束 -->
 	    </div>
 	</div>

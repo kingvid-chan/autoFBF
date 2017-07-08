@@ -28,14 +28,26 @@ gem install sass
 @import "compass";
 ```
 
-#### sass混合函数，作用是计算并给每一帧动画赋值宽高及背景图坐标
+#### sass混合函数
 ```css
+@function pxToRem ($value){
+    $value : removePx($value);
+    @return $value / 20 * 1rem;
+}
+// 去单位px
+@function removePx ($value){
+    $value : $value / ($value * 0 + 1);  
+    @return $value;
+}
+// 计算并给每一帧动画赋值宽高及背景图坐标
 @mixin retinaSprite($sprite, $name){
-  width: image-width(sprite-file($sprite, $name)) / 2;
-  height: image-height(sprite-file($sprite, $name)) / 2;
-  $xpos: round(nth(sprite-position($sprite, $name), 1) / 2);
-  $ypos: round(nth(sprite-position($sprite, $name), 2) / 2);
-  background-position: $xpos $ypos;
+  width: pxToRem(image-width(sprite-file($sprite, $name)));
+  height: pxToRem(image-height(sprite-file($sprite, $name)));
+  // $xpos: pxToRem(round(nth(sprite-position($sprite, $name), 1)));
+  // $ypos: pxToRem(round(nth(sprite-position($sprite, $name), 2)));
+  // background-position: $xpos $ypos;
+  $ypos: removePx((round(nth(sprite-position($sprite, $name), 2)) / (sprite-height($sprite) - image-height(sprite-file($sprite, $name)))) * -1)* 100%;
+  background-position: 0% $ypos;
 }
 ```
 
@@ -70,14 +82,14 @@ gem install sass
 
 将一个逐帧动画的所有帧图片放到一个文件夹中，注意每一帧图片的宽高要保持一致，比如说要实现一个小狗的逐帧动画，咱们把所有的帧图片都放到一个`dog`文件夹里面
 ```css
-$dog: sprite-map("dog/*.png");
+$dog: sprite-map("dog/*.png", $layout : 'vertical');
 ```
 
 #### 调用函数，生成逐帧代码
 ```css
 .ani{
   background: $dog no-repeat;
-  background-size: round(image-width(sprite-path($dog))) / 2 auto;
+  background-size: pxToRem(round(image-width(sprite-path($dog)))) auto;
   @include retinaAnimation($dog, $delay:true);
   animation: #{sprite-map-name($dog)} 2s step-start infinite both;
 }
@@ -101,7 +113,7 @@ compass watch
 .firstTime{
   .ani{
     background: $dog no-repeat;
-    background-size: round(image-width(sprite-path($dog))) / 2 auto;
+    background-size: pxToRem(round(image-width(sprite-path($dog)))) auto;
     @include retinaAnimation($dog, $delay:true);
     animation: #{sprite-map-name($dog)} 2s step-start infinite both;
   }
@@ -109,7 +121,7 @@ compass watch
 .manyTimes{
   .ani{
     background: $toothBrush no-repeat;
-    background-size: round(image-width(sprite-path($toothBrush))) / 2 auto;
+    background-size: pxToRem(round(image-width(sprite-path($toothBrush)))) auto;
     @include retinaAnimation($toothBrush, $delay:true);
     animation: #{sprite-map-name($toothBrush)} 2s step-start infinite both;
   }

@@ -802,23 +802,6 @@ body {
     display: none;
 }
 
-@media (max-width: 374px) {
-    .container .pages {
-        .result {
-            .symbol {
-                -webkit-transform: translate3d(-50%, -50%, 0) scale(0.75);
-                transform: translate3d(-50%, -50%, 0) scale(0.75);
-            }
-        }
-        .offSide {
-            .symbol {
-                -webkit-transform: translate3d(-50%, -50%, 0) scale(0.75);
-                transform: translate3d(-50%, -50%, 0) scale(0.75);
-            }
-        }
-    }
-}
-
 @media (min-height: 600px) {
     .container .pages {
         .symbol .ani {

@@ -1,12 +1,22 @@
 @import "compass";
 @mixin retinaSprite($sprite, $name){
-	width: image-width(sprite-file($sprite, $name)) / 2;
-	height: image-height(sprite-file($sprite, $name)) / 2;
-	$xpos: round(nth(sprite-position($sprite, $name), 1) / 2);
-	$ypos: round(nth(sprite-position($sprite, $name), 2) / 2);
-	background-position: $xpos $ypos;
+	width: pxToRem(image-width(sprite-file($sprite, $name)));
+	height: pxToRem(image-height(sprite-file($sprite, $name)));
+	// $xpos: pxToRem(round(nth(sprite-position($sprite, $name), 1)));
+	// $ypos: pxToRem(round(nth(sprite-position($sprite, $name), 2)));
+	// background-position: $xpos $ypos;
+	$ypos: removePx((round(nth(sprite-position($sprite, $name), 2)) / (sprite-height($sprite) - image-height(sprite-file($sprite, $name)))) * -1)* 100%;
+	background-position: 0% $ypos;
 }
-
+@function pxToRem ($value){
+    $value : removePx($value);
+    @return $value / 20 * 1rem;
+}
+//去单位px
+@function removePx ($value){
+    $value : $value / ($value * 0 + 1);  
+    @return $value;
+}
 @mixin retinaAnimation($sprite, $delay:false){
 	$list: sprite-names($sprite);
 	$length: length($list);
@@ -31,34 +41,34 @@
 	
 }
 // 指定雪碧地图到指定变量
-$cat: sprite-map("cat/*.png");
-$cow: sprite-map("cow/*.png");
-$crocodile: sprite-map("crocodile/*.png");
-$cryMouse: sprite-map("cryMouse/*.png");
-$dog: sprite-map("dog/*.png");
-$fish: sprite-map("fish/*.png");
-$fly: sprite-map("fly/*.png");
-$grandma: sprite-map("grandma/*.png");
-$icon: sprite-map("icon/*.png");
-$king: sprite-map("king/*.png");
-$lyingPig: sprite-map("lyingPig/*.png");
-$money: sprite-map("money/*.png");
-$moneyCat: sprite-map("moneyCat/*.png");
-$monkey: sprite-map("monkey/*.png");
-$noble: sprite-map("noble/*.png");
-$noMoney: sprite-map("noMoney/*.png");
-$pig: sprite-map("pig/*.png");
-$pixiu: sprite-map("pixiu/*.png");
-$superman: sprite-map("superman/*.png");
-$swing: sprite-map("swing/*.png");
-$toothBrush: sprite-map("toothBrush/*.png");
-$wind: sprite-map("wind/*.png");
+$cat: sprite-map("cat/*.png", $layout : 'vertical');
+$cow: sprite-map("cow/*.png", $layout : 'vertical');
+$crocodile: sprite-map("crocodile/*.png", $layout : 'vertical');
+$cryMouse: sprite-map("cryMouse/*.png", $layout : 'vertical');
+$dog: sprite-map("dog/*.png", $layout : 'vertical');
+$fish: sprite-map("fish/*.png", $layout : 'vertical');
+$fly: sprite-map("fly/*.png", $layout : 'vertical');
+$grandma: sprite-map("grandma/*.png", $layout : 'vertical');
+$icon: sprite-map("icon/*.png", $layout : 'vertical');
+$king: sprite-map("king/*.png", $layout : 'vertical');
+$lyingPig: sprite-map("lyingPig/*.png", $layout : 'vertical');
+$money: sprite-map("money/*.png", $layout : 'vertical');
+$moneyCat: sprite-map("moneyCat/*.png", $layout : 'vertical');
+$monkey: sprite-map("monkey/*.png", $layout : 'vertical');
+$noble: sprite-map("noble/*.png", $layout : 'vertical');
+$noMoney: sprite-map("noMoney/*.png", $layout : 'vertical');
+$pig: sprite-map("pig/*.png", $layout : 'vertical');
+$pixiu: sprite-map("pixiu/*.png", $layout : 'vertical');
+$superman: sprite-map("superman/*.png", $layout : 'vertical');
+$swing: sprite-map("swing/*.png", $layout : 'vertical');
+$toothBrush: sprite-map("toothBrush/*.png", $layout : 'vertical');
+$wind: sprite-map("wind/*.png", $layout : 'vertical');
 
 
 // .firstTime{
 // 	.ani{
 // 		background: $dog no-repeat;
-// 		background-size: round(image-width(sprite-path($dog))) / 2 auto;
+// 		background-size: pxToRem(round(image-width(sprite-path($dog)))) auto;
 // 		@include retinaAnimation($dog, $delay:true);
 // 		animation: #{sprite-map-name($dog)} 2s step-start infinite both;
 // 	}
@@ -66,7 +76,7 @@ $wind: sprite-map("wind/*.png");
 // .manyTimes{
 // 	.ani{
 // 		background: $toothBrush no-repeat;
-// 		background-size: round(image-width(sprite-path($toothBrush))) / 2 auto;
+// 		background-size: pxToRem(round(image-width(sprite-path($toothBrush)))) auto;
 // 		@include retinaAnimation($toothBrush, $delay:true);
 // 		animation: #{sprite-map-name($toothBrush)} 2s step-start infinite both;
 // 	}
@@ -76,7 +86,7 @@ $wind: sprite-map("wind/*.png");
 // 	&.kind1{
 // 		.ani{
 // 			background: $fly no-repeat;
-// 			background-size: round(image-width(sprite-path($fly))) / 2 auto;
+// 			background-size: pxToRem(round(image-width(sprite-path($fly)))) auto;
 // 			@include retinaAnimation($fly, $delay:true);
 // 			animation: #{sprite-map-name($fly)} 2s step-start infinite both;
 // 		}
@@ -84,7 +94,7 @@ $wind: sprite-map("wind/*.png");
 // 	&.kind2{
 // 		.ani{
 // 			background: $cow no-repeat;
-// 			background-size: round(image-width(sprite-path($cow))) / 2 auto;
+// 			background-size: pxToRem(round(image-width(sprite-path($cow)))) auto;
 // 			@include retinaAnimation($cow, $delay:true);
 // 			animation: #{sprite-map-name($cow)} 2s step-start infinite both;
 // 		}
@@ -92,7 +102,7 @@ $wind: sprite-map("wind/*.png");
 // 	&.kind3{
 // 		.ani{
 // 			background: $crocodile no-repeat;
-// 			background-size: round(image-width(sprite-path($crocodile))) / 2 auto;
+// 			background-size: pxToRem(round(image-width(sprite-path($crocodile)))) auto;
 // 			@include retinaAnimation($crocodile, $delay:true);
 // 			animation: #{sprite-map-name($crocodile)} 2s step-start infinite both;
 // 		}
@@ -100,7 +110,7 @@ $wind: sprite-map("wind/*.png");
 // 	&.kind4{
 // 		.ani{
 // 			background: $cryMouse no-repeat;
-// 			background-size: round(image-width(sprite-path($cryMouse))) / 2 auto;
+// 			background-size: pxToRem(round(image-width(sprite-path($cryMouse)))) auto;
 // 			@include retinaAnimation($cryMouse, $delay:true);
 // 			animation: #{sprite-map-name($cryMouse)} 2s step-start infinite both;
 // 		}
@@ -108,7 +118,7 @@ $wind: sprite-map("wind/*.png");
 // 	&.kind5{
 // 		.ani{
 // 			background: $wind no-repeat;
-// 			background-size: round(image-width(sprite-path($wind))) / 2 auto;
+// 			background-size: pxToRem(round(image-width(sprite-path($wind)))) auto;
 // 			@include retinaAnimation($wind, $delay:true);
 // 			animation: #{sprite-map-name($wind)} 2s step-start infinite both;
 // 		}
@@ -119,7 +129,7 @@ $wind: sprite-map("wind/*.png");
 // 	&.kind1{
 // 		.ani{
 // 			background: $cat no-repeat;
-// 			background-size: round(image-width(sprite-path($cat))) / 2 auto;
+// 			background-size: pxToRem(round(image-width(sprite-path($cat)))) auto;
 // 			@include retinaAnimation($cat, $delay:true);
 // 			animation: #{sprite-map-name($cat)} 2s step-start infinite both;
 // 		}
@@ -127,7 +137,7 @@ $wind: sprite-map("wind/*.png");
 // 	&.kind2{
 // 		.ani{
 // 			background: $swing no-repeat;
-// 			background-size: round(image-width(sprite-path($swing))) / 2 auto;
+// 			background-size: pxToRem(round(image-width(sprite-path($swing)))) auto;
 // 			@include retinaAnimation($swing, $delay:true);
 // 			animation: #{sprite-map-name($swing)} 2s step-start infinite both;
 // 		}
@@ -137,7 +147,7 @@ $wind: sprite-map("wind/*.png");
 // 	&.kind1{
 // 		.ani{
 // 			background: $moneyCat no-repeat;
-// 			background-size: round(image-width(sprite-path($moneyCat))) / 2 auto;
+// 			background-size: pxToRem(round(image-width(sprite-path($moneyCat)))) auto;
 // 			@include retinaAnimation($moneyCat, $delay:true);
 // 			animation: #{sprite-map-name($moneyCat)} 2s step-start infinite both;
 // 		}
@@ -145,7 +155,7 @@ $wind: sprite-map("wind/*.png");
 // 	&.kind2{
 // 		.ani{
 // 			background: $pig no-repeat;
-// 			background-size: round(image-width(sprite-path($pig))) / 2 auto;
+// 			background-size: pxToRem(round(image-width(sprite-path($pig)))) auto;
 // 			@include retinaAnimation($pig, $delay:true);
 // 			animation: #{sprite-map-name($pig)} 2s step-start infinite both;
 // 		}
@@ -153,7 +163,7 @@ $wind: sprite-map("wind/*.png");
 // 	&.kind3{
 // 		.ani{
 // 			background: $icon no-repeat;
-// 			background-size: round(image-width(sprite-path($icon))) / 2 auto;
+// 			background-size: pxToRem(round(image-width(sprite-path($icon)))) auto;
 // 			@include retinaAnimation($icon, $delay:true);
 // 			animation: #{sprite-map-name($icon)} 2s step-start infinite both;
 // 		}
@@ -163,7 +173,7 @@ $wind: sprite-map("wind/*.png");
 // 	&.kind1{
 // 		.ani{
 // 			background: $lyingPig no-repeat;
-// 			background-size: round(image-width(sprite-path($lyingPig))) / 2 auto;
+// 			background-size: pxToRem(round(image-width(sprite-path($lyingPig)))) auto;
 // 			@include retinaAnimation($lyingPig, $delay:true);
 // 			animation: #{sprite-map-name($lyingPig)} 2s step-start infinite both;
 // 		}
@@ -171,7 +181,7 @@ $wind: sprite-map("wind/*.png");
 // 	&.kind2{
 // 		.ani{
 // 			background: $monkey no-repeat;
-// 			background-size: round(image-width(sprite-path($monkey))) / 2 auto;
+// 			background-size: pxToRem(round(image-width(sprite-path($monkey)))) auto;
 // 			@include retinaAnimation($monkey, $delay:true);
 // 			animation: #{sprite-map-name($monkey)} 2s step-start infinite both;
 // 		}
@@ -179,7 +189,7 @@ $wind: sprite-map("wind/*.png");
 // 	&.kind3{
 // 		.ani{
 // 			background: $grandma no-repeat;
-// 			background-size: round(image-width(sprite-path($grandma))) / 2 auto;
+// 			background-size: pxToRem(round(image-width(sprite-path($grandma)))) auto;
 // 			@include retinaAnimation($grandma, $delay:true);
 // 			animation: #{sprite-map-name($grandma)} 2s step-start infinite both;
 // 		}
@@ -189,7 +199,7 @@ $wind: sprite-map("wind/*.png");
 // 	&.r1{
 // 		.symbol{
 // 			background: $fish no-repeat;
-// 			background-size: round(image-width(sprite-path($fish))) / 2 auto;
+// 			background-size: pxToRem(round(image-width(sprite-path($fish)))) auto;
 // 			@include retinaAnimation($fish);
 // 			animation: #{sprite-map-name($fish)} 2s step-start infinite both;
 // 		}
@@ -197,7 +207,7 @@ $wind: sprite-map("wind/*.png");
 // 	&.r2{
 // 		.symbol{
 // 			background: $pixiu no-repeat;
-// 			background-size: round(image-width(sprite-path($pixiu))) / 2 auto;
+// 			background-size: pxToRem(round(image-width(sprite-path($pixiu)))) auto;
 // 			@include retinaAnimation($pixiu);
 // 			animation: #{sprite-map-name($pixiu)} 2s step-start infinite both;
 // 		}
@@ -205,7 +215,7 @@ $wind: sprite-map("wind/*.png");
 // 	&.r3{
 // 		.symbol{
 // 			background: $noble no-repeat;
-// 			background-size: round(image-width(sprite-path($noble))) / 2 auto;
+// 			background-size: pxToRem(round(image-width(sprite-path($noble)))) auto;
 // 			@include retinaAnimation($noble);
 // 			animation: #{sprite-map-name($noble)} 2s step-start infinite both;
 // 		}
@@ -213,7 +223,7 @@ $wind: sprite-map("wind/*.png");
 // 	&.r4{
 // 		.symbol{
 // 			background: $king no-repeat;
-// 			background-size: round(image-width(sprite-path($king))) / 2 auto;
+// 			background-size: pxToRem(round(image-width(sprite-path($king)))) auto;
 // 			@include retinaAnimation($king);
 // 			animation: #{sprite-map-name($king)} 2s step-start infinite both;
 // 		}
@@ -221,7 +231,7 @@ $wind: sprite-map("wind/*.png");
 // 	&.r5{
 // 		.symbol{
 // 			background: $superman no-repeat;
-// 			background-size: round(image-width(sprite-path($superman))) / 2 auto;
+// 			background-size: pxToRem(round(image-width(sprite-path($superman)))) auto;
 // 			@include retinaAnimation($superman);
 // 			animation: #{sprite-map-name($superman)} 2s step-start infinite both;
 // 		}
@@ -231,7 +241,7 @@ $wind: sprite-map("wind/*.png");
 // 	&.o5{
 // 		.symbol{
 // 			background: $superman no-repeat;
-// 			background-size: round(image-width(sprite-path($superman))) / 2 auto;
+// 			background-size: pxToRem(round(image-width(sprite-path($superman)))) auto;
 // 			// @include retinaAnimation($superman);
 // 			animation: #{sprite-map-name($superman)} 2s step-start infinite both;
 // 		}
@@ -239,7 +249,7 @@ $wind: sprite-map("wind/*.png");
 // 	&.o4{
 // 		.symbol{
 // 			background: $fish no-repeat;
-// 			background-size: round(image-width(sprite-path($fish))) / 2 auto;
+// 			background-size: pxToRem(round(image-width(sprite-path($fish)))) auto;
 // 			// @include retinaAnimation($fish);
 // 			animation: #{sprite-map-name($fish)} 2s step-start infinite both;
 // 		}
@@ -247,7 +257,7 @@ $wind: sprite-map("wind/*.png");
 // 	&.o3{
 // 		.symbol{
 // 			background: $pixiu no-repeat;
-// 			background-size: round(image-width(sprite-path($pixiu))) / 2 auto;
+// 			background-size: pxToRem(round(image-width(sprite-path($pixiu)))) auto;
 // 			// @include retinaAnimation($pixiu);
 // 			animation: #{sprite-map-name($pixiu)} 2s step-start infinite both;
 // 		}
@@ -255,7 +265,7 @@ $wind: sprite-map("wind/*.png");
 // 	&.o2{
 // 		.symbol{
 // 			background: $noble no-repeat;
-// 			background-size: round(image-width(sprite-path($noble))) / 2 auto;
+// 			background-size: pxToRem(round(image-width(sprite-path($noble)))) auto;
 // 			// @include retinaAnimation($noble);
 // 			animation: #{sprite-map-name($noble)} 2s step-start infinite both;
 // 		}
@@ -263,7 +273,7 @@ $wind: sprite-map("wind/*.png");
 // 	&.o1{
 // 		.symbol{
 // 			background: $king no-repeat;
-// 			background-size: round(image-width(sprite-path($king))) / 2 auto;
+// 			background-size: pxToRem(round(image-width(sprite-path($king)))) auto;
 // 			// @include retinaAnimation($king);
 // 			animation: #{sprite-map-name($king)} 2s step-start infinite both;
 // 		}
